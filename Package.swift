@@ -7,7 +7,7 @@ import PackageDescription
 let package = Package(
     name: "CombineX",
     platforms: [
-        .iOS("14.1")
+        .iOS("13.0")
     ],
     products: [
         // Open source implementation of Combine.
@@ -127,4 +127,4 @@ let shimTarget = package.targets.first(where: { $0.name == "CXShim" })!
 shimTarget.dependencies = combineImp.shimTargetDependencies
 shimTarget.swiftSettings.append(contentsOf: combineImp.swiftSettings)
 
-package.platforms = [.iOS("14.1")]
+package.platforms = [.iOS("13.0")]
