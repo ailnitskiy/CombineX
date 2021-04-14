@@ -7,7 +7,7 @@ import PackageDescription
 let package = Package(
     name: "CombineX",
     platforms: [
-        .iOS("14.1")
+        .iOS("13.0")
     ],
     products: [
         // Open source implementation of Combine.
@@ -136,4 +136,4 @@ shimTarget.swiftSettings.append(contentsOf: combineImp.swiftSettings)
 let testTargets = package.targets.filter { $0.name == "CXTestUtility" || $0.isTest }
 testTargets.forEach { $0.swiftSettings.append(contentsOf: combineImp.swiftSettings) }
 
-package.platforms = [.iOS("14.1")]
+package.platforms = [.iOS("13.0")]
