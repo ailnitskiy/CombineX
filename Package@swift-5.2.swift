@@ -7,7 +7,7 @@ import PackageDescription
 let package = Package(
     name: "CombineX",
     platforms: [
-        .macOS(.v10_10), .iOS(.v8), .tvOS(.v9), .watchOS(.v2),
+        .iOS("14.1")
     ],
     products: [
         // Open source implementation of Combine.
@@ -136,10 +136,4 @@ shimTarget.swiftSettings.append(contentsOf: combineImp.swiftSettings)
 let testTargets = package.targets.filter { $0.name == "CXTestUtility" || $0.isTest }
 testTargets.forEach { $0.swiftSettings.append(contentsOf: combineImp.swiftSettings) }
 
-if combineImp == .combine && isCI {
-    package.platforms = [.macOS("10.15"), .iOS("13.0"), .tvOS("13.0"), .watchOS("6.0")]
-} else {
-    #if compiler(>=5.3)
-    package.platforms = [.macOS(.v10_10), .iOS(.v9), .tvOS(.v9), .watchOS(.v2)]
-    #endif
-}
+package.platforms = [.iOS("14.1")]
